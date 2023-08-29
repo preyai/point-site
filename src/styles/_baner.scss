@@ -1,0 +1,76 @@
+.baner {
+    background-color: $black;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: #fff;
+        position: relative;
+        border-radius: 0 0 50px 50px;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: #fff;
+        position: relative;
+        border-radius: 50px 50px 0 0;
+    }
+
+    // .baner_price
+
+    &_price {
+        font-size: 46px;
+        color: $red;
+        font-weight: bold;
+        letter-spacing: 2.3px;
+        text-align: center;
+
+        span {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+
+    // .baner_title
+
+    &_title {
+
+        @include media-breakpoint-down(md) {
+            border-bottom: solid 1px transparentize($color: #fff, $amount: .9);
+        }
+    }
+    &.with-line {
+        .container {
+            &::before {
+                content: "";
+                position: absolute;
+                opacity: 0.1;
+                background-color: #fff;
+                width: 1px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+    
+                @include media-breakpoint-down(md) {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+    }
+
+    .col {}
+}
+
+.row {}

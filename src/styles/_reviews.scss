@@ -1,0 +1,121 @@
+.reviews {
+
+    // .reviews_list
+
+    &_list {
+
+        // display: flex;
+        // gap: 8px;
+        .splide__list {
+            min-height: 420px;
+            align-items: center;
+        }
+    }
+
+    // .reviews_item
+
+    &_item {
+        flex: 1;
+        min-height: 360px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        border-radius: 50px;
+        overflow: hidden;
+        transition: 1s;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+        }
+
+        &:hover {
+            min-height: 420px;
+            padding-bottom: 40px;
+
+            .reviews_btn {
+                opacity: 1;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            // &:not(:first-child) {
+            //     display: none;
+            // }
+        }
+    }
+
+    // .reviews_name
+
+    &_name {
+        position: relative;
+        z-index: 2;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    // .reviews_btn
+
+    &_btn {
+        z-index: 2;
+        opacity: 0;
+        position: relative;
+        background: none;
+        border: none;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        color: #fff;
+        text-decoration: underline;
+        transition: 1s;
+    }
+
+    // .reviews_nav
+
+    &_nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+            color: #000;
+            background: transparent;
+            padding: 18px 30px;
+            border: solid 1px $black;
+            font-size: 30px;
+            line-height: 1;
+
+            &:first-child {
+                border-radius: 30px 0 0 30px;
+                border-right: 0;
+            }
+
+            &:last-child {
+                border-radius: 0 30px 30px 0;
+                border-left: 0;
+            }
+
+            &:hover {
+                background-color: $black;
+                color: #fff;
+            }
+        }
+    }
+
+}

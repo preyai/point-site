@@ -1,0 +1,268 @@
+.apps {
+
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: -20px;
+        top: 0;
+        bottom: -50px;
+        background-image: url('../assets/images/apps-man.png');
+        background-position: right bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 3;
+    }
+
+    h2 {
+        text-align: left;
+        width: max-content;
+
+        @include media-breakpoint-up(md) {
+            font-size: 56px;
+        }
+
+        @include media-breakpoint-down(md) {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+    // .apps_list
+
+    &_list {
+
+        // gap: 30px;
+        margin-top: 30px;
+        position: relative;
+        z-index: 3;
+
+        @include media-breakpoint-up(md) {
+            display: flex;
+            // max-width: 100%;
+            // overflow-y: auto;
+        }
+    }
+
+    // .apps_item
+
+    &_item {
+        background-color: $black;
+        padding: 40px;
+        border: 1px solid transparent;
+        border-radius: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        position: relative;
+        min-width: 270px;
+        transition: transform 1s, background-color .5s;
+
+        @include media-breakpoint-down(md) {
+            min-width: 210px;
+            gap: 10px;
+        }
+    }
+
+    &_logo {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+        opacity: 1;
+        transition: 1s opacity;
+
+    }
+
+    &_qr {
+        height: 0;
+
+        width: auto;
+        object-fit: contain;
+        opacity: 0;
+        transition: 1s opacity;
+    }
+
+    &_title {
+        max-width: 200px;
+        transition: transform 1s;
+
+    }
+
+    // .apps_btn
+
+    &_btn {
+        margin-top: auto;
+        margin-bottom: 20px;
+        padding: 20px;
+        width: 100%;
+        border-radius: 50px;
+        background: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        border: solid 1px #fff;
+        transition: 1s;
+
+    }
+
+    &_bords {
+        div {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: solid 1px transparent;
+            border-radius: 25px 0 0 0;
+
+            &:nth-child(1) {
+                top: 30px;
+                left: 30px;
+                border-left: solid 1px #fff;
+            }
+
+            &:nth-child(2) {
+                top: 30px;
+                right: 30px;
+                border-right: solid 1px #fff;
+                border-radius: 0 25px 0 0;
+            }
+
+            &:nth-child(3) {
+                bottom: 30px;
+                right: 30px;
+                border-right: solid 1px #fff;
+                border-radius: 0 0 25px 0;
+            }
+
+            &:nth-child(4) {
+                bottom: 30px;
+                left: 30px;
+                border-left: solid 1px #fff;
+                border-radius: 0 0 0 25px;
+            }
+        }
+    }
+
+    &_wrap {
+        @include media-breakpoint-up(md) {
+            &:hover {
+
+                .apps {
+                    &_item {
+                        transform: rotateY(180deg);
+                        background-color: #fff;
+                        border: 1px solid #eaeaea;
+                    }
+
+                    &_bords {
+                        div {
+                            &:nth-child(1) {
+                                border-color: transparent;
+                                border-left: solid 1px $red;
+                            }
+
+                            &:nth-child(2) {
+                                border-color: transparent;
+                                border-right: solid 1px $red;
+                            }
+
+                            &:nth-child(3) {
+                                border-color: transparent;
+                                border-right: solid 1px $red;
+                            }
+
+                            &:nth-child(4) {
+                                border-color: transparent;
+                                border-left: solid 1px $red;
+                            }
+                        }
+                    }
+
+                    &_logo {
+                        // display: none;
+                        opacity: 0;
+                        height: 0;
+                    }
+
+                    &_qr {
+                        // display: block;
+                        opacity: 1;
+                        height: 80px;
+                    }
+
+                    &_title {
+                        transform: rotateY(180deg);
+                        filter: invert(80%) sepia(86%) saturate(3307%) hue-rotate(341deg) brightness(95%) contrast(99%);
+                    }
+
+                    &_btn {
+                        transform: rotateY(180deg);
+                        color: $red;
+                        border-color: $red;
+
+                        &:hover {
+                            background-color: $red;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .splide__slide {
+        @include media-breakpoint-down(md) {
+            &.is-active {
+                &:first-child {
+                    margin-left: -50px;
+                }
+            }
+
+            &:not(.is-active) {
+                .apps {
+                    &_wrap {
+                        transform: scale(.8);
+                        height: 100%;
+                    }
+
+                    &_item {
+                        background-color: #fff;
+                        border: 1px solid #959595;
+                        height: 100%;
+                    }
+                }
+
+                &.is-next {
+                    .apps_logo {
+                        filter: invert(1);
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%) scale(.8);
+                        left: 10px;
+                    }
+                }
+
+                &.is-prev {
+                    .apps_logo {
+                        filter: invert(1);
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%) scale(.8);
+                        right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: 330px;
+
+        &::before {
+            background-size: auto 300px;
+            background-position: center bottom;
+        }
+    }
+}

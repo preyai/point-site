@@ -1,0 +1,31 @@
+// bootstrap
+// @import "/node_modules/bootstrap/scss/functions";
+// @import "/node_modules/bootstrap/scss/variables";
+// @import "/node_modules/bootstrap/scss/mixins";
+// @import "/node_modules/bootstrap/scss/root";
+// @import "/node_modules/bootstrap/scss/reboot";
+// @import "/node_modules/bootstrap/scss/type";
+// @import "/node_modules/bootstrap/scss/images";
+// @import "/node_modules/bootstrap/scss/containers";
+// @import "/node_modules/bootstrap/scss/grid";
+@import "/node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "/node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "/node_modules/bootstrap/scss/bootstrap-utilities.scss";
+@import "/node_modules/bootstrap/scss/modal";
+
+// site
+@import "./variables";
+@import "./base";
+@import "./fonts";
+@import "./header";
+@import "./footer";
+@import "./welcome";
+@import "./baner";
+@import "./activity";
+@import "./about";
+@import "./philosophy";
+@import "./reviews";
+@import "./apps";
+@import "./social";
+@import "./modal";
+@import "./big-text";

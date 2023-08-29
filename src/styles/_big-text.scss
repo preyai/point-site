@@ -1,0 +1,28 @@
+@include media-breakpoint-down(md) {
+
+    .big-text {
+        margin-bottom: 30px;
+
+        &__content {
+            &:not(.show) {
+                max-height: 200px;
+                overflow: hidden;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    height: 90%;
+                    background-image: linear-gradient(to top, #fff, transparent);
+                }
+            }
+        }
+
+        &__btn {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
